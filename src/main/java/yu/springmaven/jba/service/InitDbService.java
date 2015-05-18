@@ -19,25 +19,22 @@ import yu.springmaven.jba.repository.ItemRepository;
 import yu.springmaven.jba.repository.RoleRepository;
 import yu.springmaven.jba.repository.UserRepository;
 
-
-
-
-@Service
 @Transactional
+@Service
 public class InitDbService {
 
 	@Autowired
 	private RoleRepository roleRepository;
-
+	
 	@Autowired
 	private UserRepository userRepository;
-
+	
 	@Autowired
 	private BlogRepository blogRepository;
-
+	
 	@Autowired
 	private ItemRepository itemRepository;
-
+	
 	@PostConstruct
 	public void init() {
 		Role roleUser = new Role();
@@ -75,6 +72,7 @@ public class InitDbService {
 		item2.setLink("http://www.javavids.com");
 		item2.setPublishedDate(new Date());
 		itemRepository.save(item2);
-
+		
 	}
+	
 }

@@ -11,23 +11,31 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Item {
-
+	
 	@Id
 	@GeneratedValue
-	private Integer id;
-
+	private int id;
+	
 	private String title;
-
 	private String description;
-
-	@Column(name = "published_date")
+	
+	@Column(name="published_date")
 	private Date publishedDate;
-
+	
 	private String link;
-
+	
 	@ManyToOne
-	@JoinColumn(name = "blog_id")
+	@JoinColumn(name="blog_id")
 	private Blog blog;
+
+	
+	public Date getPublishedDate() {
+		return publishedDate;
+	}
+
+	public void setPublishedDate(Date publishedDate) {
+		this.publishedDate = publishedDate;
+	}
 
 	public Blog getBlog() {
 		return blog;
@@ -37,11 +45,11 @@ public class Item {
 		this.blog = blog;
 	}
 
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -61,13 +69,7 @@ public class Item {
 		this.description = description;
 	}
 
-	public Date getPublishedDate() {
-		return publishedDate;
-	}
 
-	public void setPublishedDate(Date publishedDate) {
-		this.publishedDate = publishedDate;
-	}
 
 	public String getLink() {
 		return link;
@@ -76,5 +78,4 @@ public class Item {
 	public void setLink(String link) {
 		this.link = link;
 	}
-
 }

@@ -9,23 +9,16 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 
-import java.util.List;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-
 @Entity
 public class Role {
-
+	
 	@Id
 	@GeneratedValue
-	private Integer id;
-
+	private int id;
+	
 	private String name;
-
-	@ManyToMany
+	
+	@ManyToMany(mappedBy="roles")
 	private List<User> users;
 
 	public List<User> getUsers() {
@@ -36,11 +29,11 @@ public class Role {
 		this.users = users;
 	}
 
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -51,5 +44,6 @@ public class Role {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 
 }
