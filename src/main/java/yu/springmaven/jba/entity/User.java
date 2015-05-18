@@ -14,18 +14,13 @@ public class User {
 
 	@Id
 	@GeneratedValue
-	private int id;
-	private String name;
-	private String password;
-	public List<Blog> getBlogs() {
-		return blogs;
-	}
+	private Integer id;
 
-	public void setBlogs(List<Blog> blogs) {
-		this.blogs = blogs;
-	}
+	private String name;
 
 	private String email;
+
+	private String password;
 	
 	@ManyToMany
 	@JoinTable
@@ -34,12 +29,28 @@ public class User {
 	@OneToMany(mappedBy="user")
 	private List<Blog> blogs;
 
+	public List<Blog> getBlogs() {
+		return blogs;
+	}
+
+	public void setBlogs(List<Blog> blogs) {
+		this.blogs = blogs;
+	}
+
 	public List<Role> getRoles() {
 		return roles;
 	}
 
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -50,14 +61,6 @@ public class User {
 		this.name = name;
 	}
 
-	public String getPassword() {
-		return password;
-	}
-	
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
 	public String getEmail() {
 		return email;
 	}
@@ -66,12 +69,12 @@ public class User {
 		this.email = email;
 	}
 
-	public int getId() {
-		return id;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }
