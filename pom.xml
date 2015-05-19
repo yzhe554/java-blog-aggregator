@@ -11,8 +11,13 @@
 		<apache.tiles>3.0.5</apache.tiles>
 	</properties>
 	<dependencies>
-	
-	
+
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
