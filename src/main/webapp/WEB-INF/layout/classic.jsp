@@ -4,7 +4,7 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles-extras"
 	prefix="tilesx"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
