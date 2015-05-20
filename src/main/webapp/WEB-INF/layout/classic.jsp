@@ -8,6 +8,8 @@
 <head>
 
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="security"%>
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
@@ -52,15 +54,20 @@
 					<ul class="nav navbar-nav">
 						<li class="${current == 'index' ? 'active' : ''}"><a
 							href="<spring:url value="/" />">Home</a></li>
+							<security:authorize access="hasRole('ADMIN')">
 						<li class="${current == 'users' ? 'active' : ''}"><a
 							href="<spring:url value="/users.html" />">Users</a></li>
+							</security:authorize>
 						<li class="${current == 'register' ? 'active' : ''}"><a
 							href="<spring:url value="/register.html" />">Register</a></li>
-						<li class="${current == 'login' ? 'active' : ''}"><a
+							<security:authorize access="! isAuthenticated()">
+								<li class="${current == 'login' ? 'active' : ''}"><a
 							href="<spring:url value="login.html" />">Login</a></li>
-							<li><a
-							href="<spring:url value="/logout" />">Logout</a></li>
-					<%-- 	<form action="/logout" method="post">
+							</security:authorize>
+						<security:authorize access="isAuthenticated()">
+						<li><a href="<spring:url value="/logout" />">Logout</a></li>
+						</security:authorize>
+						<%-- 	<form action="/logout" method="post">
 							<input type="hidden" name="${_csrf.parameterName}"
 								value="${_csrf.token}" /> <input type="submit" value="Logout" />
 						</form> --%>

@@ -6,7 +6,7 @@
 		   http://www.springframework.org/schema/security
 		   http://www.springframework.org/schema/security/spring-security.xsd">
 
-	<http>
+	<http use-expressions="true">
 		<intercept-url pattern="/users**" access="hasRole('ADMIN')" />
 		<intercept-url pattern="/users/**" access="hasRole('ADMIN')" />
 		<form-login login-page="/login.html"/>
