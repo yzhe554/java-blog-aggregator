@@ -58,10 +58,12 @@
 							href="<spring:url value="/register.html" />">Register</a></li>
 						<li class="${current == 'login' ? 'active' : ''}"><a
 							href="<spring:url value="login.html" />">Login</a></li>
-						<form action="/logout" method="post">
+							<li><a
+							href="<spring:url value="/logout" />">Logout</a></li>
+					<%-- 	<form action="/logout" method="post">
 							<input type="hidden" name="${_csrf.parameterName}"
 								value="${_csrf.token}" /> <input type="submit" value="Logout" />
-						</form>
+						</form> --%>
 
 					</ul>
 
