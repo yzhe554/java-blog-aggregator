@@ -17,6 +17,7 @@ public class User {
 	private int id;
 	private String name;
 	private String password;
+	private boolean enabled;
 	public List<Blog> getBlogs() {
 		return blogs;
 	}
@@ -36,6 +37,14 @@ public class User {
 
 	public List<Role> getRoles() {
 		return roles;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 
 	public void setRoles(List<Role> roles) {

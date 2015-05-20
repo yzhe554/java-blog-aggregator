@@ -1,5 +1,6 @@
 package yu.springmaven.jba.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -7,13 +8,16 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import yu.springmaven.jba.entity.Blog;
 import yu.springmaven.jba.entity.Item;
+import yu.springmaven.jba.entity.Role;
 import yu.springmaven.jba.entity.User;
 import yu.springmaven.jba.repository.BlogRepository;
 import yu.springmaven.jba.repository.ItemRepository;
+import yu.springmaven.jba.repository.RoleRepository;
 import yu.springmaven.jba.repository.UserRepository;
 
 @Service
@@ -26,6 +30,8 @@ public class UserService {
 	private BlogRepository blogRepository;
 	@Autowired
 	private ItemRepository itemRepository;
+	@Autowired
+	private RoleRepository roleRepository;
 
 	public List<User> findAll() {
 		return userRepository.findAll();
@@ -49,6 +55,12 @@ public class UserService {
 	}
 
 	public void save(User user) {
+		user.setEnabled(true);
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		user.setPassword(encoder.encode(user.getPassword()));
+		List<Role> roles = new ArrayList<Role>();
+		roles.add(roleRepository.findByName("ROLE_USER"));
+		user.setRoles(roles);
 		userRepository.save(user);
 
 	}
