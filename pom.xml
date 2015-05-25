@@ -12,6 +12,12 @@
 		<spring.security.version>4.0.1.RELEASE</spring.security.version>
 	</properties>
 	<dependencies>
+	
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-validator</artifactId>
+		<version>5.1.3.Final</version>
+	</dependency>
 
 	<dependency>
 		<groupId>org.springframework.security</groupId>
