@@ -27,6 +27,8 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
+<!-- JQuery Validation Plugin  -->
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
 
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
