@@ -83,7 +83,7 @@
 		<c:forEach items="${user.blogs}" var="blog">
 			<div role="tabpanel" class="tab-pane" id="blog_${blog.id}">
 				<h1><c:out value="${blog.name}" /></h1>
-				<p><c:out value="${blog.id}" /></p>
+				<%-- <p><c:out value="${blog.id}" /></p> --%>
 				<a href="<spring:url value="/users/blog/remove/${blog.id}.html" />" class="btn btn-danger triggerRemove">remove blog</a>
 				<p><c:out value="${blog.url}" /></p>
 				<table class="table table-bordered table-hover table-striped">
