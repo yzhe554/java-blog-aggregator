@@ -33,13 +33,8 @@ public class User {
 	@Size(min = 5, message = "Password must be at least 5 characters!")
 	private String password;
 	private boolean enabled;
-	public List<Blog> getBlogs() {
-		return blogs;
-	}
+	
 
-	public void setBlogs(List<Blog> blogs) {
-		this.blogs = blogs;
-	}
 	
 	@Size(min = 1, message="Invalid email address!")
 	@Email(message="Invalid email address!")
@@ -51,6 +46,16 @@ public class User {
 	
 	@OneToMany(mappedBy="user",cascade=CascadeType.REMOVE)
 	private List<Blog> blogs;
+	
+	
+	
+	public List<Blog> getBlogs() {
+		return blogs;
+	}
+
+	public void setBlogs(List<Blog> blogs) {
+		this.blogs = blogs;
+	}
 
 	public List<Role> getRoles() {
 		return roles;

@@ -24,6 +24,11 @@
 		<url-pattern>*.json</url-pattern>
 		<url-pattern>*.xml</url-pattern>
 	</servlet-mapping>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/applicationContext.xml</param-value> <!-- /WEB-INF/applicationContext.xml is default, so it is not necessary -->
+	</context-param>
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
@@ -41,26 +46,24 @@
 
 	<filter>
 		<filter-name>characterEncodingFilter</filter-name>
-		<filter-class>
-			org.springframework.web.filter.CharacterEncodingFilter
-		</filter-class>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
 		<init-param>
 			<param-name>encoding</param-name>
 			<param-value>UTF-8</param-value>
 		</init-param>
 	</filter>
-	
+
 	<filter-mapping>
 		<filter-name>characterEncodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
-	<!--  -->
+
+	<!-- prevent XSS -->
 	<context-param>
 		<param-name>defaultHtmlEscape</param-name>
 		<param-value>true</param-value>
 	</context-param>
-	
+
 	<context-param>
 		<param-name>spring.profiles.default</param-name>
 		<param-value>prod</param-value>
